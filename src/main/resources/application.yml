@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: account-server
+  flyway:
+    locations: classpath:db/migration
+  profiles:
+    active: local

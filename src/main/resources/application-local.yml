@@ -1,0 +1,32 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/sframe-auth-db
+    username: root
+    password: 123456
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  #  create：每次运行程序时，都会重新创建表，故而数据会丢失
+  #  create-drop：每次运行程序时会先创建表结构，然后待程序结束时清空表
+  #  upadte：每次运行程序，没有表时会创建表，如果对象发生改变会更新表结构，原有数据不会清空，只会更新（推荐使用）
+  #  validate：运行程序会校验数据与数据库的字段类型是否相同，字段不同会报错
+  #  none: 禁用DDL处理
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          public-key-location: classpath:public.txt
+
+  nacos.config.server-addr=127.0.0.1:8848
+
+  # endpoint http://localhost:8080/actuator/nacos-config
+  # health http://localhost:8080/actuator/health
+  management.endpoints.web.exposure.include=*
+  management.endpoint.health.show-details=always
+
