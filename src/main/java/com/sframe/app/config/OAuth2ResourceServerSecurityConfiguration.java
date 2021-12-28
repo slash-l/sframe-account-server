@@ -46,6 +46,7 @@ public class OAuth2ResourceServerSecurityConfiguration extends WebSecurityConfig
                                         .and().requestMatchers().and().authorizeRequests().antMatchers("/console/**").permitAll() // 允许 h2console 通过security 认知
                                         .and().requestMatchers().and().authorizeRequests().antMatchers("/actuator/**", "/favicon.ico").permitAll()  // 允许 actuator 健康检查接口通过认证
                                         .and().requestMatchers().and().authorizeRequests().antMatchers("/swagger-ui.html", "/swagger-resources/**", "/webjars/**", "/*/api-docs").permitAll()      // 允许jenkins通知 通过认证
+                                        .and().requestMatchers().and().authorizeRequests().antMatchers("/").permitAll()
 //                                        .antMatchers(HttpMethod.GET, "/message/**").hasAuthority("SCOPE_message:read")        // 配置接口全校要求,作为案例保留
 //                                        .antMatchers(HttpMethod.POST, "/message/**").hasAuthority("SCOPE_message:write")
                                         .anyRequest().authenticated();
