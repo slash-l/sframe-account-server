@@ -4,7 +4,7 @@ node {
     def buildInfo = Artifactory.newBuildInfo()
 
     stage('Code Check out') {
-        git url: 'https://gitee.com/mumu79/sframe-app.git'
+        git url: 'https://github.com/slash-l/sframe-account-server.git'
     }
 
     stage('Artifactory configuration') {
